@@ -1,10 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 </head>
-<body>
-	<h1>functions</h1>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<img width="30%" src="images/functions.svg" alt="">
+			<div>
+				JS Functions
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что такое функция?</h2>
+		<p>
+			<span class="next">Это специальная конструкция</span><span class="next">,
+				которая позволяет выполнять набор киких-то действий и/или
+				обработку данных в определенном порядке.
+			</span>
+			<span class="next">
+				Важно заметить, что функции позволяют выполнять этот набор действий многократно,
+			</span>
+			<span class="next">
+				в нужный момент времени
+			</span>
+			<span class="next">
+				и без явного многократного написания того куска кода, который заключен в функцию.
+			</span>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Зачем нужны функции?</h2>
+		<ul style='font-size: 20px'>
+			<li class='next'>
+				<b>Меньше кода</b> - вместо многократного написания одного и того же кода,
+				можно просто вызвать много раз одну и туже функцию, с разными аргументами.
+			</li>
+			<li class='next'>
+				<b>Упрощение кода</b> - проще искать одну ошибку в одной функции, чем
+				одну ошибку в многократно повторяющихся подобных частях кода. Меньше шанс опечатки.
+			</li>
+			<li class='next'>
+				<b>Выполнение кода в нужный момент времени</b> - выполнение кода при определенных
+				действиях со стороны пользователя. Клики, движения мышкой и тд.
+			</li>
+			<li class='next'>
+				<b>Более быстрое повторное выполнение</b> - браузер кэширует ("запоминает")
+				функцию и в следующий вызов выполняет ее быстрее
+			</li>
+			<li class='next'>
+				<b>Разделение кода на части</b> - позволяет разделить код на логические части. Например
+				функция обработки клика
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Объявление функций</h2>
+		<pre class='next'>
+			<code>var foo = 1; // - объявление переменной</code>
+		</pre>
+		<pre class='next'>
+			<code>function foo(){}; // - объявление функции</code>
+		</pre>
+		<pre class='next'>
+			<code>var foo = function(){}; // - объявление функции</code>
+		</pre>
+		<p class='next'>
+			Названия функций и переменных не должны повторяться иначе они перезапишутся
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Пример #1</h2>
+		<div style="font-size: 24px">
+			без функции:
+			<pre>
+				<code>var a = 1, b = 2, c = 3, d = 4;</code>
+				<code class='next'>var n1 = a * b / c + d <span class="next">// => 4.666666666666667</span></code>
+				<code class='next'>var n2 = d * a / b + c <span class="next">// => 5</span>                </code>
+				<code class='next'>var n3 = c * d / a + b <span class="next">// => 14</span>               </code>
+				<code class='next'>var n4 = a * b / c + d <span class="next">// => 4.666666666666667</span></code>
+				<code class='next'>var n5 = b + c / d + a <span class="next">// => 1</span>                </code>
+				<code class='next'>var n6 = c * d / a + b <span class="next">// => 14</span>               </code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Пример #1</h2>
+		<div style="font-size: 20px" class='double'>
+			с функцией:
+			<pre>
+				<code>var a = 1, b = 2, c = 3, d = 4;  </code>
+				<div>
+					<code>function foo(n1, n2, n3, n4){  </code>
+					<code>	return n1 * n2 / n3 + n4;    </code>
+					<code>};                             </code>
+				</div>
+				<code>var k1 = foo(a, b, c, d)</code>
+				<code>var k2 = foo(d, a, b, c)</code>
+				<code>var k3 = foo(c, d, a, b)</code>
+				<code>var k4 = foo(a, b, c, d)</code>
+				<code>var k5 = foo(b, c, d, a)</code>
+				<code>var k6 = foo(c, d, a, b)</code>
+			</pre>
+			<div class="next">
+				И тут все стало непонятно О_о было "a, b, c, d", стало "n1, n2, n3, n4"...
+				<div class="next" style="font-size: 80px; line-height: 100px;">?!</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Объяснение a => n1</h2>
+		<pre style='font-size: 20px;'>
+			<code>function foo(a1, a2){ // a1 - имя переменной, в которую будет записан  </code>
+			<code>                      // первый аргумент переданный в функцию          </code>
+			<code>	console.log(a1 + a1)                                                 </code>
+			<code>}                                                                      </code>
+			<code>                                                                       </code>
+			<code>foo(5)     // => 10                                                    </code>
+			<code>foo()      // => undefined                                             </code>
+			<code>foo(9, 5)  // => 18;                                                   </code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Объяснение return</h2>
+		<div style='font-size: 22px;'>
+			<code>return</code> - ключевое слово, для обозначения значения, которое возвращаяет функция.
+			<p>
+				До этого наши функции ничего не возвращали (хотя на самом деле они
+				возвращали <code>undefined</code>). Для определения значения возвращаемого функцией,
+				используется ключевое слово <code>return</code>, например:
+			</p>
+			<pre>
+				<code>function foo(a){</code>
+				<code>	var a2 = a * a;</code>
+				<code>	return a2;</code>
+				<code>};</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Объяснение return #2</h2>
+		<pre>
+			<code>function foo(a){</code>
+			<code>	return a * a;</code>
+			<code>};</code>
+
+			<code>var k = foo(6);</code>
+			<code>k // => 36</code>
+		</pre>
+		<pre>
+			<code>var k = 6 * 6</code>
+			<code>k // => 36</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Объяснение return #3</h2>
+		<p>
+			Прерывание выполнения функции
+		</p>
+		<pre style='font-size: 16px;' class='double'>
+			<code>function foo(val){                        </code>
+			<code>	if (val % 2 !== 0 || val % 3 !== 0) {   </code>
+			<code>		return                                </code>
+			<code>	}                                       </code>
+			<code>                                          </code>
+			<code>	return val                              </code>
+			<code>}                                         </code>
+			<code>                                          </code>
+			<code>var arr = []                              </code>
+			<code>                                          </code>
+			<code>for (var k = 0; k <= 50; k++){            </code>
+			<code>	if (foo(k)) {                           </code>
+			<code>		arr[arr.length] = foo(k)              </code>
+			<code>	}                                       </code>
+			<code>}                                         </code>
+			<code>                                          </code>
+			<code>arr // => [6, 12, 18, 24, 30, 36, 42, 48] </code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>JS функции и математика</h2>
+		<p>Программирование основанно на математике</p>
+		<p>
+			Математическая функция y = x^2:
+		</p>
+		<table>
+			<tr>
+				<td><b>x:</b></td>
+				<td>-4</td>
+				<td>-3</td>
+				<td>-2</td>
+				<td>-1</td>
+				<td>0</td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td><b>y:</b></td>
+				<td>16</td>
+				<td>9</td>
+				<td>4</td>
+				<td>1</td>
+				<td>0</td>
+				<td>1</td>
+				<td>4</td>
+				<td>9</td>
+				<td>16</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>JS функции и математика #2</h2>
+		<p>
+			<code>y = x^2</code> функция в JS:
+			<pre>
+				<code>sqrt(val){          </code>
+				<code>	return val * val; </code>
+				<code>}                   </code>
+			</pre>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>JS функции и математика #3</h2>
+		<p>
+			y = <input id='drawTableRatio' style='width: 60px;' type="number">
+			x^<input id='drawTablePow' style='width: 60px;' type="number"> <button id='drawTableBtn'>Нарисовать</button>
+			<br>
+			<label style="font-size: 16px;"><input type="checkbox" checked id='drawTableCheckbox'>очистить перед рисованием</label>
+		</p>
+		<canvas id='drawTableCanvas' style="width: 300px; height: 300px; box-shadow: 0 0 5px #bbb" width='300' height="300"></canvas>
+
+		<script>
+			document.getElementById('drawTableBtn').addEventListener('click', function(){
+				var ratio = document.getElementById('drawTableRatio').value
+				var pow = document.getElementById('drawTablePow').value
+				var canvas = document.getElementById('drawTableCanvas')
+				var context = canvas.getContext('2d')
+				var table = document.getElementById('drawTableTable')
+				var checkbox = document.getElementById('drawTableCheckbox')
+
+				var x = - 149; // initial x
+				var maxX = 150; // max x
+				var offset = 150;
+				var arr = []
+
+				for (x; x <= maxX; x++){
+					arr.push(getXY(x, ratio, pow))
+				}
+
+				if (checkbox.checked){
+					context.clearRect(0, 0, canvas.width, canvas.height)
+				}
+
+				context.beginPath();
+				context.moveTo(0, 150);
+				context.lineTo(300, 150);
+				context.moveTo(150, 0);
+				context.lineTo(150, 300);
+				context.stroke();
+
+				arr.forEach(function(coords){
+					context.fillRect(coords.x, coords.y, 1, 1)
+				})
+
+				function getXY(x, ratio, pow){
+					return {
+						x: offset + x,
+						y: offset + (+ratio * Math.pow(x, +pow)) * -1
+					}
+				}
+			})
+		</script>
+	</section>
+
+
+	<section class="slide">
+		<div class='double'>
+			<canvas id='drawCustomCanvas' style="width: 400px; height: 400px; box-shadow: 0 0 5px #bbb" width='400' height="400"></canvas>
+			<form id='drawCustomForm'>
+				<input id='drawCustomFormula' style='width: 250px; padding: 10px;' placeholder='этот код будет выполнен через eval'>
+				<button style="padding: 7px;">Начертить</button>
+			</form>
+			<ul style="font-size: 14px;">
+				<br>
+				<li>x > 50 && x < 100 ? -1 * x + 150 : Math.sin(25 * x) * 20 + (x > 0 ? x  : Math.cos(x) * - .5 * x - x)</li>
+				<br>
+				<li>
+					x < -150 ? Math.sin(25 * x) * 20 :
+					x < 0 ? Math.pow(x, 2) * .01 :
+					x < 100 ? 50 - .1 * x :
+					x < 150 ? Math.tan(x) * .5 :
+					- 150 + x
+				</li>
+				<br>
+				<li>
+					Math.sin(25 * x) * 20 + (x > 0 ? Math.pow(x, 1.5) * .1 : Math.tan(x))
+				</li>
+				<br>
+				<li>
+					x < -150 ? Math.sin(25 * x) * 20 -x - 200 :  x < -130 ? Math.sin(25 * x) * 20 - 50 : Math.sin(25 * x) * 50 - 20
+				</li>
+				<br>
+				<li>
+					x * x * x * 0.0005 - x * 4
+				</li>
+				<br>
+				<li>
+					x * x * .06 - 150
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			document.getElementById('drawCustomForm').addEventListener('submit', function(){
+				var canvas = document.getElementById('drawCustomCanvas')
+				var formula = document.getElementById('drawCustomFormula').value
+				var context = canvas.getContext('2d')
+
+				var offset = 200
+
+				context.clearRect(0, 0, canvas.width, canvas.height)
+
+				context.beginPath();
+				context.moveTo(0, 200);
+				context.lineTo(400, 200);
+				context.moveTo(200, 0);
+				context.lineTo(200, 400);
+				context.stroke();
+
+				var arr = []
+
+				for (var k = -199; k < 200; k += 0.25){
+					var coords = getCoords(k)
+
+					if (coords) {
+						arr.push(coords)
+					} else {
+						alert('код плохо написан')
+						return
+					}
+				}
+
+				arr.forEach(function(coords){
+					context.fillRect(coords.x, coords.y, 1, 1)
+				})
+
+				function getCoords(x){
+					try {
+						var coords = {
+							x: x,
+							y: eval(formula)
+						}
+
+						coords.x += offset
+						coords.y = (coords.y * -1 + 400) - offset
+
+						return coords
+					} catch (err) {
+						return false
+					}
+				}
+			})
+		</script>
+	</section>
+
+	<section class="slide">
+		<div class="shout" style="font-size: px;">
+			<a href='/'>На главную</a>
+		</div>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
 </body>
 </html>
