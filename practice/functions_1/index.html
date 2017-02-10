@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			Функции - практика #1
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что не так с этой функцией? #1</h2>
+		<pre>
+			<code>var k = 111;      </code>
+			<code>function foo(a){  </code>
+			<code>	k = 222;        </code>
+			<code>	return a * a;   </code>
+			<code>}                 </code>
+		</pre>
+		<p class="next">
+			Функция имеет побочное действие.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Что не так с этой функцией? #2</h2>
+		<pre>
+			<code>var k = 222;     </code>
+			<code>function foo(a){ </code>
+			<code>	return a * k;  </code>
+			<code>}                </code>
+		</pre>
+		<p class="next">
+			Функция работает с данными, переменной k, которя не была явно передена в нее.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Что не так с этой функцией? #3</h2>
+		<pre>
+			<code>function foo(a){               </code>
+			<code>	if (Math.random() * 2 > 1) { </code>
+			<code>		return a + 1;              </code>
+			<code>	} else {                     </code>
+			<code>		return a - 1;              </code>
+			<code>	}                            </code>
+			<code>}                              </code>
+		</pre>
+		<p class="next">
+			При одном и том же аргументе, функция может возвращать разные значения.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Чему равна переменная k? #1</h2>
+		<pre>
+			<code>var k = 111;                         </code>
+			<code>foo();                               </code>
+			<code>k // => <mark class="next">111</mark></code>
+			<code>function foo(){                       </code>
+			<code>	k === 222                           </code>
+			<code>}                                     </code>
+		</pre>
+		<p class="next">
+			Функция <code>foo</code> ничего не меняет
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Чему равна переменная k? #2</h2>
+		<pre>
+			<code>var k = 111;                           </code>
+			<code>k; // => <mark class="next">111</mark> </code>
+			<code>function foo(){                        </code>
+			<code>	k = 222;                             </code>
+			<code>}                                      </code>
+		</pre>
+		<p class="next">
+			Функция <code>foo</code> может изменить k, но она не вызывается и ничего не меняется.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Чему равна переменная k? #3</h2>
+		<pre style='font-size: 20px;'>
+			<code>var k = 111;                                         </code>
+			<code>k; // => <mark class="next">111</mark>               </code>
+			<code>foo();                                               </code>
+			<code>function foo(){                                      </code>
+			<code>	var k;                                              </code>
+			<code>	k = 222                                            </code>
+			<code>}                                                    </code>
+		</pre>
+		<p class="next">
+			Функция <code>foo</code> определяет собственную переменную <code>k</code>, поэтому переменная
+			<code>k</code> из глобальной области не меняется.
+		</p>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

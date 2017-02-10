@@ -97,3 +97,27 @@
 .page__link-icon:before {
 	font-size: 1.3em;
 }
+
+.page__subitems {
+	list-style: none;
+	margin: 10px 0;
+	padding-left: 2.1em;
+}
+
+.page__subitem {
+
+}
+
+.page__subitem + .page__subitem {
+	margin-top: 10px;
+}
+
+.page__sublink {
+	text-decoration: none;
+	color: inherit;
+	font-size: .8em;
+}
+
+.page__sublink:hover {
+	text-decoration: underline;
+}
