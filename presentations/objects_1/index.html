@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<img width="30%" src="images/objects.svg" alt="">
+			<div>
+				JS Objects #1
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что такое объект в JS ?</h2>
+		<p>
+			Ассоциативный массив – структура данных, в которой можно хранить любые данные в формате ключ-значение.
+		</p>
+		<p>
+			<a href="https://learn.javascript.ru/object">https://learn.javascript.ru/object</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Создание объекта в JS</h2>
+		<div style='font-size: 20px;'>
+			<pre class='next'>
+				<code>var foo = {};</code>
+				<code>console.log(foo); // => <mark>{}</mark></code>
+			</pre>
+			<pre class='next'>
+				<code>var foo = {</code>
+				<code>	prop: 'some string'</code>
+				<code>};</code>
+				<code>console.log(foo); // => <mark>{prop: 'some string'}</mark></code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Глобальные переменные как свойства объекта window</h2>
+		<div style='font-size: 20px'>
+			<pre>
+				<code class='next'>document // глобальная переменная</code>
+				<code class='next'>window // другая глобальная переменная =)</code>
+			</pre>
+			<p class='next'>
+				Все глобальные переменные являются свойствами объекта <code>window</code>
+			</p>
+			<pre>
+				<code class='next'>console.log(foo) // => <mark class="next">ReferenceError: foo is not defined</mark></code>
+				<code class='next'>console.log(window.foo) // => <mark class="next">undefined</mark></code>
+				<code class='next'>var foo = 123;</code>
+				<code class='next'>console.log(foo) // => <mark class="next">123</mark></code>
+				<code class='next'>console.log(window.foo) // => <mark class="next">123</mark></code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Задание свойств объекта в JS</h2>
+		<div style='font-size: 20px;'>
+			<pre class='next'>
+				<code>var foo = {};</code>
+				<code class='next'>console.log(foo); // => {}</code>
+				<code class='next'>console.log(foo.prop); // => <mark class="next">undefined</mark></code>
+				<hr>
+				<code class='next'>foo.prop = 'some value'</code>
+				<code class='next'>console.log(foo); // => {prop: 'some value'}</code>
+				<code class='next'>console.log(foo.prop); // => 'some value'</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Обраный случай с определением переменной - очень плохой код =)</h2>
+		<pre>
+			<code class='next'>console.log(foo) // => <mark class="next">ReferenceError: foo is not defined</mark></code>
+			<code class='next'>console.log(window.foo) // => <mark class="next">undefined</mark></code>
+			<code class='next'>window.foo = 123;</code>
+			<code class='next'>console.log(foo) // => <mark class="next">123</mark></code>
+			<code class='next'>console.log(window.foo) // => <mark class="next">123</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Допустимые значения для свойств объектов</h2>
+		<div style='font-size: 14px;'>
+			<p>В качестве значения свойства может выступать любое допустимое в JS значение</p>
+			<pre>
+				<code>var foo = {           </code>
+				<code>	subObj: {           </code>
+				<code>		text: 'string',   </code>
+				<code>		num: 123,         </code>
+				<code>		subObj: {         </code>
+				<code>			isTrue: false   </code>
+				<code>		}                 </code>
+				<code>	},                  </code>
+				<code>	ids: [1, 2, 3, 4],  </code>
+				<code>	logIt: function(){  </code>
+				<code>		console.log(this) </code>
+				<code>	}                   </code>
+				<code>};                    </code>
+			</pre>
+		</div>
+
+	</section>
+
+	<section class="slide">
+		<h2>Сравнение объектов</h2>
+		<div style="font-size: 18px;">
+			<pre>
+				<code class="next">var foo = {num: 123};</code>
+				<code class="next">var too = {num: 123};</code>
+				<code class="next">console.log(foo === too); // => <mark class="next">false</mark></code>
+				<code class="next">console.log(foo == too); // => <mark class="next">false</mark></code>
+			</pre>
+			<p class="next">При создании объекта в переменную записывается ссылка на объект в памяти, а не сам объект.</p>
+			<p class="next">Единственный вариант, когда при простой проверке на равество, объекты равны, это когда они имеют одну и ту же ссылку.</p>
+			<pre class="next">
+				<code>var foo = {num: 123};</code>
+				<code>var too = foo;</code>
+				<code>console.log(foo === too); // => <mark class="next">true</mark></code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Изменение примитивов vs Изменение объектов</h2>
+		<div style="font-size: 20px;">
+			<div class="double">
+				<pre>
+					<code>var num1 = 123;</code>
+					<code>var num2 = num1;</code>
+					<code>console.log(num1); // 123</code>
+					<code>console.log(num2); // 123</code>
+					<code>var num2 = 234</code>
+					<code class="next">console.log(num1); // => <mark class="next">123</mark></code>
+					<code class="next">console.log(num2); // => <mark class="next">234</mark></code>
+				</pre>
+
+				<pre class="next">
+					<code>var foo = {num: 123}</code>
+					<code>var too = foo</code>
+					<code>console.log(foo); // => {num: 123}</code>
+					<code>console.log(too); // => {num: 123}</code>
+					<code>too.num = 234</code>
+					<code>console.log(too); // => <mark class="next">{num: 234}</mark></code>
+					<code class="next">console.log(foo); // => <mark class="next">{num: 234}</mark></code>
+				</pre>
+			</div>
+		</div>
+	</section>
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
