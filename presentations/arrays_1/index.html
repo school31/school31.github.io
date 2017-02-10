@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<img width="30%" src="images/arrays.svg" alt="">
+			<div>
+				JS Arrays #1
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что такое массив в JS ?</h2>
+		<p>
+			Массив – разновидность объекта, которая предназначена для хранения пронумерованных значений и предлагает дополнительные методы для удобного манипулирования такой коллекцией.
+		</p>
+		<p>
+			Они обычно используются для хранения упорядоченных коллекций данных, например – списка товаров на странице, студентов в группе и т.п.
+		</p>
+		<p>
+			<a href="https://learn.javascript.ru/array">https://learn.javascript.ru/array</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Создание массива в JS</h2>
+		<div style='font-size: 20px;'>
+			<pre class='next'>
+				<code>var foo = [];</code>
+				<code>console.log(foo); // => <mark>[]</mark></code>
+			</pre>
+			<pre class='next'>
+				<code>var foo = [1, 2, 3]</code>
+				<code>console.log(foo); // => <mark>[1, 2, 3]</mark></code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Обращение к элементу массива</h2>
+		<pre>
+			<code>var foo = [34, 45, 21, 76, 84];</code>
+			<code class="next">foo[0] // => 34</code>
+			<code class="next">foo[3] // => 76</code>
+		</pre>
+		<p class="next">
+			Нумерация элементов массива начинается с нуля.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Длина массива и обращение к последнему элементу массива</h2>
+		<pre>
+			<code>var foo = [34, 45, 21, 76, 84];</code>
+			<code class='next'>foo.length // => 5</code>
+			<code class='next'>foo[foo.length - 1] // => 84</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Допустимые значения для элементов массива</h2>
+		<div style='font-size: 14px;'>
+			<p>В качестве элементов может выступать любое допустимое в JS значение</p>
+			<pre>
+				<code>var comments = [                 </code>
+				<code>	{                              </code>
+				<code>		id: 32,                      </code>
+				<code>		name: 'Vasya',               </code>
+				<code>		text: 'fasjdf laksjdfl asdf' </code>
+				<code>	},                             </code>
+				<code>	{                              </code>
+				<code>		id: 73,                      </code>
+				<code>		name: 'Петя',                </code>
+				<code>		text: 'лол'                  </code>
+				<code>	}                              </code>
+				<code>];                               </code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Сравнение массивов</h2>
+		<p>
+			Массив это частный случай объекта, на него действуют те же правила сравнения, что и для всех объектов.
+			То есть равны только те массивы, которые имеют одинаковую ссылку.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Методы массивов</h2>
+		<ul>
+			<li>
+				<a href="https://learn.javascript.ru/array-methods">https://learn.javascript.ru/array-methods</a>
+			</li>
+			<li>
+				<a href="https://learn.javascript.ru/array-iteration">https://learn.javascript.ru/array-iteration</a>
+			</li>
+		</ul>
+		<ul>
+			<li><a href="https://learn.javascript.ru/array-iteration#map">map</a></li>
+			<li><a href="https://learn.javascript.ru/array-iteration#foreach">forEach</a></li>
+			<li><a href="https://learn.javascript.ru/array-iteration#filter">filter</a></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Изменение массива</h2>
+		<pre>
+			<code>var foo = [1, 2, 3]</code>
+			<code>foo[1] = 564;</code>
+			<code>console.log(foo); // => [1, 564, 3]</code>
+			<code>foo[foo.length] = 888;</code>
+			<code>console.log(foo); // => [1, 564, 3, 888]</code>
+			<code>foo[10] = 999;</code>
+			<code class="next">console.log(foo); // => [ 1, 2, 3, 888, <6 empty slots>, 999]</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Изменение массива - #2</h2>
+		<pre>
+			<code>var foo = [1, 2, 3];</code>
+			<code>foo.push(10);</code>
+			<code>foo; // => [1, 2, 3, 10]</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Задание</h2>
+		<div style="font-size: 14px;">
+			<p>
+				Имеется определенный набор данных. Это объект.
+				В нем есть вложенный объект с описанием новости и массив с комментариями.
+				В описании новости есть: название, текст, дата публикации, картинка и объект с данными автора новости.
+				В объекте автора новости есть имя и аватар.
+				Каждый элемент массива комментариев это объект.
+				У комментария есть текст и дата.
+				Так же у комментария можеть быть автор.
+				Автор так же является объектом с именем.
+				Так же у автора может быть аватар.
+			</p>
+			<ul>
+				<li>lvl 1: написать функцию, которая будет генерировать html с новостью (заголовок, картинка, текст, дата публикации)</li>
+				<li>lvl 1: + функция должна генерировать список комментариев (текст, дата публикации)</li>
+				<li>lvl 2: + функция должна генерировать автора комментария если он есть и показывать заглушку, если автора нет (имя)</li>
+				<li>lvl 3: + функция должна показывать генерировать изображение с аватаром автора комментария, если он есть или показывать заглушку (аватар комментатора)</li>
+			</ul>
+			<p>
+				<a href="http://codepen.io/iusfof/pen/RKqxOV?editors=1010">исходные данные</a>
+			</p>
+			<p>
+				<a href="https://learn.javascript.ru/modifying-document">createElement - советую обратить внимание</a>
+			</p>
+		</div>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
