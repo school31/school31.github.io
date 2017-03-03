@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<div style='font-size: 1.5em; margin-bottom: .5em; color: #000;'>
+				/^\w.+\d$/
+			</div>
+			<div>
+				JS RegExp #1
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что такое RegExp?</h2>
+		<p>
+			Регулярные выражения – мощное средство поиска и замены в строке.
+
+			В JavaScript регулярные выражения реализованы отдельным объектом RegExp и интегрированы в методы строк.
+		</p>
+		<p>
+			<a href="https://learn.javascript.ru/regular-expressions-javascript">https://learn.javascript.ru/regular-expressions-javascript</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Создание RegExp в JS</h2>
+		<pre>
+			<code>var foo = /abc 123/gim;</code>
+			<code>typeof foo // => 'object'</code>
+		</pre>
+		<p>
+			Слеши '/' говорят JavaScript о том, что это регулярное выражение.
+			Они играют здесь ту же роль, что и кавычки для обозначения строк или
+			фигурные скобки для обозначения объектов.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Флаги RegExp в JS</h2>
+		<pre>
+			<code>var foo = /.*/<mark>gim</mark>;</code>
+		</pre>
+		<p>
+			<mark>g</mark> - Если этот флаг есть, то регэксп ищет все совпадения, иначе – только первое.
+		</p>
+		<p>
+			<mark>i</mark> - Если этот флаг есть, то регэксп ищет независимо от регистра, то есть не различает между А и а.
+		</p>
+		<p>
+			<mark>m</mark> - Многострочный режим.
+		</p>
+	</section>
+
+	<section class='slide'>
+		<h2>Классы RegExp в JS</h2>
+		<div style="font-size: 20px;">
+			<p>
+				<code>/abc 123/</code>
+			</p>
+			<p>
+				<mark>\d</mark> - любая цифра от 0 до 9 => <code>/abc \d\d\d/</code>
+			</p>
+			<p>
+				<mark>\w</mark> - любая латинская буква => <code>/\w\w\w 123/</code>
+			</p>
+			<p>
+				<mark>\s</mark> - любой пробельный символ, табуляция или перевод строки => <code>/abc\s123/</code>
+			</p>
+			<p>
+				<mark>\D</mark>, <mark>\W</mark>, <mark>\S</mark> - обратные проверки
+			</p>
+			<p>
+				<mark>.</mark> - любой символ кроме перевода строки
+			</p>
+			<p>
+				<a href="http://javascript.ru/regexp">http://javascript.ru/regexp</a>
+			</p>
+		</div>
+	</section>
+
+	<section class='slide'>
+		<h2>Спецсимволы RegExp в JS</h2>
+		<p>
+			<mark>[ \ ^ $ . | ? * + ( )</mark>
+		</p>
+		<p>
+			<code>/abc 123/</code>
+		</p>
+		<ul style="font-size: 20px;">
+			<li>
+				<mark>[abc]</mark> - любой из преведенных символов => <code>/[abc][abc][abc] 123/</code>
+			</li>
+			<li>
+				<mark>[^abc]</mark> - любой, кроме преведенных символов => <code>/[^bc][^ac][^ab] 123/</code>
+			</li>
+			<li>
+				<mark>\</mark> - спецсимвол для экранирования спецсимвола.
+				<br>
+				Например <mark>/./</mark> - обозначает поиск любого символа.
+				<br>
+				Например <mark>/\./</mark> - обозначает поиск точки.
+			</li>
+			<li>
+				<mark>^</mark> - обозначение начала строки => <code>/^abc/</code>
+			</li>
+		</div>
+	</section>
+
+
+	<section class='slide'>
+		<h2>Спецсимволы RegExp в JS - #2</h2>
+		<p>
+			<mark>[ \ ^ $ . | ? * + ( )</mark>
+		</p>
+		<ul>
+			<li>
+				<mark>$</mark> - обозначение конца строки => <code>/abc$/</code>
+			</li>
+			<li>
+				<mark>|</mark> - или. Например <mark>/red|green/</mark>
+			</li>
+			<li>
+				<mark>?</mark> - обозначение необязательности элемента => <code>/ab<mark>c?</mark>/</code>
+			</li>
+			<li>
+				<mark>*</mark> - обозначает повторение 0 или более раз
+			</li>
+			<li>
+				<mark>+</mark> - обозначает повторение 1 или более раз
+			</li>
+			<li>
+				<mark>( )</mark> - "запоминающие скобки"
+			</li>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<h2>Кватификаторы RegExp в JS</h2>
+		<p>
+			<mark>+, *, ? и {n}</mark>
+		</p>
+		<p>
+			<mark>{n}</mark> - позволяет найти точно количество повторений элемента
+		</p>
+		<ul style="font-size: 20px;">
+			<li>
+				<mark>{0,}</mark> - от 0 повторений. Эквивалентно <mark>*</mark> => <code>/acb*/</code> или <code>/acb{0,}/</code>
+			</li>
+			<li>
+				<mark>{1,}</mark> - от 1 повторений. Эквивалентно <mark>+</mark> => <code>/acb+/</code> или <code>/acb{1,}/</code>
+			</li>
+			<li>
+				<mark>{0,1}</mark> - от 0 до 1 повторений. Эквивалентно <mark>?</mark> => <code>/acb?/</code> или <code>/acb{0,1}/</code>
+			</li>
+			<li>
+				<mark>{5,}</mark> - от 5 повторений, до беконечности => <code>/b{5,}/</code>
+			</li>
+			<li>
+				<mark>{5}</mark> - точно 5 повторений => <code>/acbbbbb/</code> или <code>/acb{5}/</code>
+			</li>
+			<li>
+				<mark>{2,4}</mark> - от 2 до 4 повторений => <code>/acb{2,4}/</code>
+			</li>
+		</ul>
+	</section>
+
+
+	<section class="slide">
+		<h2>Практика - #1</h2>
+		<pre>
+			<code>'some string here'</code>
+			<code class="next"><mark>/some/</mark>   // => <span class="next">'<mark>some</mark> string here'</span></code>
+			<code class="next"><mark>/me st/</mark>  // => <span class="next">'so<mark>me st</mark>ring here'</span></code>
+			<code class="next"><mark>/g he/</mark>   // => <span class="next">'some strin<mark>g he</mark>e'</span></code>
+			<code class="next"><mark>/ring/</mark>   // => <span class="next">'some st<mark>ring</mark> here'</span></code>
+			<code class="next"><mark>/strong/</mark> // => <span class="next">'some string here'</span></code>
+			<code class="next"><mark>/ere/</mark>    // => <span class="next">'some string h<mark>ere</mark>'</span></code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>Практика - #2</h2>
+		<pre>
+			<code>'some 123 string 234 here'</code>
+			<code class="next"><mark>/^.{5}/</mark>    // => <span class="next">'<mark>some </mark>123 string 234 here'</span></code>
+			<code class="next"><mark>/\d+\s.*$/</mark> // => <span class="next">'some <mark>123 string 234 here</mark>'</span></code>
+			<code class="next"><mark>/\d.*\d/</mark>   // => <span class="next">'some <mark>123 string 234</mark> here'</span></code>
+			<code class="next"><mark>/\w+.+\d/</mark>  // => <span class="next">'<mark>some 123 string 234</mark> here'</span></code>
+			<code class="next"><mark>/\.*\d+/</mark>   // => <span class="next">'some <mark>123</mark> string 234 here'</span></code>
+			<code class="next"><mark>/\d{2}/g</mark>   // => <span class="next">'some <mark>12</mark>3 string <mark>23</mark>4 here'</span></code>
+		</pre>
+		<p class="next">
+			<a target='_blank' href="https://regexper.com/#%2F%5Cd%7B2%2C%205%7D%5Cs.%2B%5C.%5Cw%7B%2C10%7D%24%2F">https://regexper.com/</a>
+		</p>
+	</section>
+
+
+	<section class="slide">
+		<h2>Методы RegExp и String</h2>
+		<p style="font-size: 20px;">
+			<a href="https://learn.javascript.ru/regexp-methods">https://learn.javascript.ru/regexp-methods</a>
+		</p>
+		<ul style="font-size: 20px;">
+			<li>
+				<mark>regExp.test(string)</mark> - проверяет соответствует ли строка регулярному выражению
+				<br>
+				Например <code>/test/.test('string for testing')</code> => <span class="next">true =></span>
+				<code class="next">'string for <mark>test</mark>ing'</code>
+			</li>
+			<li class='next'>
+				<mark>string.match(regExp) с флагом g</mark> - ищет все совпадения и возвращяет массив совпадений
+				<br>
+				<code>'some 123 string 234 here'.match(/^\w{1}|\w{3} 1|\d{2}\sstr|re$/g)</code>
+				<br>
+				<code>[ <span class="next">"s"</span>, <span class="next">"ome 1"</span>, <span class="next">"23 str"</span>, <span class="next">"re"</span> ]</code>
+			</li>
+			<li class="next">
+				<mark>string.match(regExp) без флага g</mark> - <a href="https://learn.javascript.ru/regexp-methods#str-match-reg-%D0%B1%D0%B5%D0%B7-%D1%84%D0%BB%D0%B0%D0%B3%D0%B0-g">действует немного по другому</a>
+			</li>
+		</ul>
+	</section>
+
+
+	<section class="slide">
+		<h2>Методы RegExp и String - #2</h2>
+		<p>
+			string.replace(reg|str, str|func)
+		</p>
+		<pre>
+			<code>var str = 'some 123 string 234 here';</code>
+			<code class='next'>str.replace('s', '0')       // => <span class="next">'0ome 123 string 234 here'</span></code>
+			<code class='next'>str.replace(/s/g, '0')      // => <span class="next">'0ome 123 0tring 234 here'</span></code>
+			<code class='next'>str.replace(/[2ei]/g, '0')  // => <span class="next">'som0 103 str0ng 034 h0r0'</span></code>
+			<code class='next'>str.replace(/\w/g, '0')     // => <span class="next">'0000 123 000000 234 0000'</span></code>
+			<code class='next'>str.replace(/[SRM]/g, '0')  // => <span class="next">'some 123 string 234 here'</span></code>
+			<code class='next'>str.replace(/[SRM]/ig, '0') // => <span class="next">'0o0e 123 0t0ing 234 he0e'</span></code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>Методы RegExp и String - #3</h2>
+		<p style="font-size: 22px;">
+			string.replace(reg|str, str|func) again =)
+			<br>
+			Использование "запоминающих скобок"
+		</p>
+		<pre style="font-size: 22px;">
+			<code>'some string here'.replace(/(some) (string)/, '$2 $1')</code>
+			<code>// => 'string some here'</code>
+		</pre>
+		<pre style="font-size: 22px;">
+			<code class='next'>var str = 'Чип и Дейл'</code>
+			<code class='next'>var regExp = /(Чип) (и) (Д)(е)(йл)/</code>
+			<code class='next'>str.replace(regExp, '$1-$1-$1-$1 $2$2$2 $3$4$4$4$5')</code>
+			<code class='next'>// => 'Чип-Чип-Чип-Чип иии Дееейл'</code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>Чип-Чип-Чип-Чип иии Дееейл</h2>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/TLm8BKyYXck?start=22" frameborder="0" allowfullscreen></iframe>
+	</section>
+
+
+	<section class="slide">
+		<h2>Зачем же нужны регулярные выражения?</h2>
+		<ul>
+			<li class='next'>Валидация данных</li>
+			<li class='next'>Форматирование данных перед отправкой на сервер</li>
+			<li class='next'>Моя фантация иссякла =(</li>
+			<li class='next'>Ваши варианты??</li>
+		</ul>
+	</section>
+
+
+	<section class='slide'>
+		<h2>Задание #1</h2>
+		<p style="font-size: 24px;">
+			Создать интпут и кнопку. Кнопка по-умолчанию disabled. При вводе текста в интпут,
+			если текст, является валидным email'ом, кнопка становится доступной и тсановится недоступной
+			если email не валиден.
+			При блюре инпута если инпут пуст, то появляется блок с ошибкой с текстом 'Введите email',
+			если поле не пусто и email не валиден, то появляется блок с ошибкой с текстом 'Email не валиден'.
+			При начале ввода в инпут, блок с ошибкой автоматически скрывается, не зависимо от того
+			валиден инпут или нет.
+			При клике на кнопку, должен появляться alert с email'ом, который вы ввели в инпут.
+		</p>
+	</section>
+
+
+	<section class='slide'>
+		<h2>Задание #2</h2>
+		<div style="font-size: 16px;">
+			<p>
+				Создать инпут для ввода телефона и блок рядом с ним. При вводе в инпут любого текста, в блоке должен
+			</p>
+			Правила:
+			<ul>
+				<li>
+					Все нецифровые символы убираются
+					<code>'+7a920b947c52d57' => '+79209475257'</code>
+				</li>
+				<li>
+					Все пробелы убираются
+					<code>'+7 920 947 52 57' => '+79209475257'</code>
+				</li>
+				<li>
+					Если в начале стоит 8, то она заменяется на +7
+					<code>'8 920 947 52 57' => '+79209475257'</code>
+				</li>
+				<li>
+					Если в начале стоит не 8 и не +7, то в начало добавляется +7
+					<code>'920 947 52 57' => '+79209475257'</code>
+				</li>
+				<li>
+					Если введено меньше 11 цифр, то недостающие заменяются нулями
+					<code>'+7 920 947' => '+79209470000'</code>
+				</li>
+				<li>
+					Если введено больше 11 цифр, то лишние скрываются
+					<code>'+7 920 947 52 57 12 3456' => '+79209475257'</code>
+				</li>
+			</ul>
+			<p>
+				<b>Hardore:</b> сделать так, чтобы можно было вводить только цыфры, пробелы, тире и плюс
+			</p>
+			<p>
+				<b>Nightmare:</b> сделать так, чтобы можно былло ввести не больше 11 цифр
+			</p>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<h2>Задание #3</h2>
+		<p>
+			<a href="https://regexcrossword.com/">Кроссворд с регулярными выражениями</a>
+		</p>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
