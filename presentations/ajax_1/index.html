@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ajax - #1</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<div style='font-size: 1.5em; margin-bottom: .5em; color: #000;'>
+				AJAX
+			</div>
+			<div style="font-size: 70px">
+				Asynchronous Javascript and XML
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>AJAX - что такое?</h2>
+		<div style="font-size: 20px">
+			<p>
+				<p>
+					AJAX (аббревиатура от «Asynchronous Javascript And Xml») – технология обращения к серверу без
+					перезагрузки страницы.
+					</p>
+				<p>
+					За счет этого уменьшается время отклика и веб-приложение по интерактивности больше напоминает десктоп.
+				</p>
+				<p>
+					Несмотря на то, что в названии технологии присутствует буква X (от слова XML), использовать
+					XML вовсе не обязательно. Под AJAX подразумевают любое общение с сервером без перезагрузки
+					страницы, организованное при помощи JavaScript.
+				</p>
+			</p>
+			<p>
+				<a href="https://learn.javascript.ru/ajax">https://learn.javascript.ru/ajax</a>
+			</p>
+		</div>
+	</section>
+
+	<section class='slide'>
+		<h2>Варианты написания запроса</h2>
+		<ul>
+			<li>Нативный XMLHttpRequest - <a href="https://learn.javascript.ru/ajax-xmlhttprequest">https://learn.javascript.ru/ajax-xmlhttprequest</a></li>
+		</ul>
+		<ul>
+			<li>jQuery</li>
+			<li>axios</li>
+			<li>...куча других библиотек</li>
+		</ul>
+		<ul>
+			<li>fetch - <a href="https://learn.javascript.ru/fetch">https://learn.javascript.ru/fetch</a> - нативный способ, но на данный момент слабо поддерживается браузерами</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>AJAX на примере jQuery</h2>
+		<p><a href="http://api.jquery.com/jquery.ajax/">http://api.jquery.com/jquery.ajax/</a></p>
+		<pre>
+			<code>$.ajax({ // обращаемся к методу <mark>ajax</mark></code>
+			<code>	url: 'site.com/api/v1/home',</code>
+			<code>	// url где "лежит" то, что нам нужно</code>
+			<code>	method: method,  // get, post, patch, put, ...</code>
+			<code>	success: function(data){ /* обрабатываем ответ */ },</code>
+			<code>	error: function(xhr){ /* обрабатываем ошибку */ }</code>
+			<code>})</code>
+		</pre>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
