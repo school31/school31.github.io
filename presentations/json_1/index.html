@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JSON</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+
+	<section class='slide' id='cover'>
+		<h2 class="shout">
+			<img width="30%" src="images/json.svg" alt="">
+			<div style='font-size: 80px'>
+				JavaScript Object Notation
+			</div>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>JSON - что это?</h2>
+		<p>
+			JSON - текстовый формат обмена данными, основанный на JavaScript.
+			Чаще всего, когда вы пишите ajax запрос, вы ожидаете получить данные именно в формате JSON.
+		</p>
+		<p>
+			<a href="https://learn.javascript.ru/json">https://learn.javascript.ru/json</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>JSON - особенности</h2>
+		<div style="font-size: 23px;">
+			<p>
+				JSON напоминает обычный javascript-объект, но обладает рядом особенностей.
+			</p>
+			<p>
+				В качестве значений, в JSON, могут быть использованы только следующие значения:
+			</p>
+			<ul>
+				<li><b>Объект</b> - <code>{"ключ": значение}</code></li>
+				<li><b>Массив</b> - <code>[значение1, значение2, значение3, ...]</code></li>
+				<li><b>Число</b> - <code>123</code></li>
+				<li><b>Литералы</b> - <code>true</code>, <code>false</code>, <code>null</code></li>
+				<li><b>Строки</b> - <code>"какая-то строка"</code></li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>JSON - особенности #2</h2>
+		<p>Все ключи и все значения, которые являются строками, в JSON должны быть обернуты в двойные кавычки - <code>"foo"</code></p>
+	</section>
+
+	<section class="slide">
+		<h2>JSON - методы</h2>
+		<ul>
+			<li><code>JSON.parse(srt)</code></li>
+			<li><code>JSON.stringify(obj)</code></li>
+		</ul>
+		<pre>
+			<code class="next">var respond = <mark>'{"name": "Dima", "age": 26, "height": 173}'</mark></code>
+			<code class="next">var data = JSON.parse(respond);</code>
+			<code class="next">data // => <mark>{ name: "Dima", age: 26, height: 173 }</mark></code>
+			<code class="next">var dataForSend = JSON.stringify(data)</code>
+			<code class="next">dataForSend // => <mark>'{"name":"Dima","age":26,"height":173}'</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre style="font-size: 20px;">
+			<code>{</code>
+			<code>	"user": {</code>
+			<code>		"name": "Саня",</code>
+			<code>		"pogonalo": "Цитрус",</code>
+			<code>		"surname": "Апельсинов",</code>
+			<code>		"job": null,</code>
+			<code>		"age": 33,</code>
+			<code>		"hobbies": [</code>
+			<code>			"пивасик",</code>
+			<code>			"эй, семки есть? а если найду?"</code>
+			<code>		]</code>
+			<code>	}</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
