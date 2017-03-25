@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+	<link rel="stylesheet" href="styles/screen-update.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>JavaScript. Урок 3. Основные операторы</h1>
+		<p><a href="ilovedraw.com">Кузнецов Андрей Николаевич</a>, для школы № 31</p>
+	</header>
+	<section class="slide">
+		<h2 class="shout">Повторение</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>alert( '1' + 2 ); <mark class="next">// 12</mark></code>
+			<code>alert( 2 + '1' ); <mark class="next">// 21</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var apples = "2";</code>
+			<code>var oranges = "3";</code>
+			<code>alert( apples + oranges ); <mark class="next">// "23"</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var apples = "2";</code>
+			<code>var oranges = "3";</code>
+			<code>alert( +apples + +oranges ); <mark class="next">// 5</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var i = 1;</code>
+			<code>alert( 2 * ++i ); <mark class="next">// 4</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var i = 1;</code>
+			<code>alert( 2 * i++ ); <mark class="next">//  2</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>alert( 'Вася' > 'Ваня' ); <mark class="next">// true, т.к. 'с' > 'н'</mark></code>
+			<code>alert( "2" > "14" ); <mark class="next">// true</mark></code>
+			<code>alert( 0 == false ); <mark class="next">// true</mark></code>
+			<code>alert( 0 === false ); <mark class="next">// false</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Логические операторы</h2>
+	</section>
+
+	<section class="slide">
+		<p>Для операций над логическими значениями в JavaScript есть <br><mark>|| (ИЛИ), && (И) и ! (НЕ).</mark></p>
+		<p>Хоть они и называются «логическими», но в JavaScript могут применяться к значениям любого типа и возвращают также значения любого типа.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Таблица истинности</h2>
+		<table class="striped text-center">
+			<tr>
+				<th>A</th>
+				<th>B</th>
+				<th>&#172;A ( !A )</th>
+				<th>A &#8743; B (A && B)</th>
+				<th>A &#8744; B (A || B)</th>
+			</tr>
+			<tr>
+				<td width="15%">0</td>
+				<td width="15%">0</td>
+				<td>1</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>0</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Что сделает этот код?</h2>
+		<pre>
+			<code>var hour = 12,</code>
+			<code>    isWeekend = true;</code>
+			<code>if (hour < 10 || hour > 18 || isWeekend) {</code>
+			<code>    alert( 'Офис до 10 или после 18 или в выходной закрыт' );</code>
+			<code>} <mark class="next">alert выполнится, isWeekend = true</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что сделает этот код?</h2>
+		<pre>
+			<code>var hour = 12,</code>
+			<code>    minute = 39;</code>
+			<code>if (hour == 12 && minute == 30) {</code>
+			<code>    alert( 'Время 12:30' );</code>
+			<code>} <mark class="next">// Ничего не произойдет. 39 != 30</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Короткий цикл вычислений</h2>
+		<p>Допустим, вычисляются несколько ИЛИ подряд: a || b || c || .... Если первый аргумент – true, то результат заведомо будет true (хотя бы одно из значений – true), и <b>остальные значения игнорируются.</b></p>
+		<pre>
+			<code>var x;</code>
+			<code>true || (x = 1);</code>
+			<code>alert(x); <mark class="next">// undefined, x не присвоен</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<blockquote>
+			<b>||</b> запинается на «правде», <br>
+			<b>&&</b> запинается на «лжи».
+			<br>
+			<i>(c) Кто-то</i>
+		</blockquote>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code class="comment">// Первый аргумент - true,</code>
+			<code class="comment">// Поэтому возвращается второй аргумент</code>
+			<code>alert( 1 && 0 ); // 0</code>
+			<code>alert( 1 && 5 ); // 5</code>
+			<code></code>
+			<code class="comment">// Первый аргумент - false,</code>
+			<code class="comment">// Он и возвращается, а второй аргумент игнорируется</code>
+			<code>alert( null && 5 ); // null</code>
+			<code>alert( 0 && "не важно" ); // 0</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>! (НЕ)</h2>
+		<p>Оператор НЕ – самый простой. Он получает один аргумент. Синтаксис:</p>
+		<pre>
+			<code>var result = !value;</code>
+		</pre>
+
+		<ol>
+			<li>Сначала приводит аргумент к логическому типу true/false.</li>
+			<li>Затем возвращает противоположное значение.</li>
+		</ol>
+
+		<pre>
+			<code>alert( !true ); <mark class="next">// false</mark></code>
+			<code>alert( !0 ); <mark class="next">// true</mark></code>
+			<code>alert( !'Гы' ); <mark class="next">// false</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<p>В частности, двойное НЕ используют для преобразования значений к логическому типу:</p>
+		<pre>
+			<code>alert( !!"строка" ); <mark class="next">// true</mark></code>
+			<code>alert( !!null ); <mark class="next">// false</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Циклы</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Цикл while</h2>
+		<b>Синтаксис</b>
+		<pre>
+			<code>while (условие) {</code>
+			<code class="comment"> // код, тело цикла</code>
+			<code>}</code>
+		</pre>
+		<mark>Пока условие верно – выполняется код из тела цикла.</mark>
+
+	</section>
+
+	<section class="slide">
+		<h2>Что будет?</h2>
+		<pre>
+			<code>var i = 0;</code>
+			<code>while (i < 3) {</code>
+			<code>    alert( i );</code>
+			<code>    i++;</code>
+			<code>}</code>
+		</pre>
+		<mark class="next">Повторение цикла по-научному называется «итерация». Цикл в примере выше совершает три итерации.</mark>
+	</section>
+
+	<section class="slide">
+		<p><b>Условие в скобках интерпретируется как логическое значение, поэтому вместо while (i!=0) обычно пишут while (i):</b></p>
+		<pre>
+			<code>var i = 3;</code>
+			<code>while (i) {</code>
+			<code>    alert( i );</code>
+			<code>    i--;</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>Задание 1</h2>
+		<p>Сделать программу которая спрашивала бы Ваше имя до тех пор пока вы не ответите ему "заканчивай", "Заканчивай", "хватит", "Хватит"</p>
+		<button id="button_1">Начать спрашивать</button>
+		<script>
+			var button = document.getElementById('button_1');
+			button.addEventListener('click', function() {
+				var	enteredWord;
+
+				while (enteredWord !== 'заканчивай' && enteredWord !== 'Заканчивай' &&
+				       enteredWord !== 'Хватит' && enteredWord !== 'хватит') {
+					enteredWord = prompt('Введите пожалуйста Ваше имя');
+				}
+
+				alert('Молодец, ты справился');
+			});
+		</script>
+	</section>
+
+	<section class="slide">
+		<h2>Задание 2</h2>
+		<p>Выводить список цифр до введеной. Четные цифры должны заменяться нулями.</p>
+		<button id="button_2">Посмотреть</button>
+		<div id="showDigits"></div>
+		<script>
+			var button2 = document.getElementById('button_2');
+			var div = document.getElementById('showDigits');
+
+			button2.addEventListener('click', function() {
+				var numberEntered = prompt('Введите число');
+				if (+numberEntered * 0 === 0) {
+					div.innerHTML = '';
+					var i = 0;
+					while (i != +numberEntered) {
+						div.innerHTML = div.innerHTML + i * (i % 2) + ' . ';
+						i++;
+					}
+
+				} else {
+					alert('Вы ввели не число');
+				}
+
+			});
+		</script>
+
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="progress"></div>
+
+	<script src="shower.min.js"></script>
+	<!-- Copyright © 2016 Yours Truly, Famous Inc. -->
+</body>
+</html>

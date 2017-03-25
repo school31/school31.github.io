@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class="slide">
+		<h2>document</h2>
+		<p>
+			<code>document</code> - глобальная переменная в браузере
+		</p>
+		<p>
+			<code>document.getElementById(<mark>SOME_ID</mark>)</code> - найтина странице элемент с id <code>SOME_ID</code>
+		</p>
+		<p>
+			<code>SOME_ID</code> - строка
+		</p>
+	</section>
+
+	<section class="slide">
+		<div class="double">
+			<h2>Пара полезных команд</h2>
+			<ul>
+				<li><code>console.log(...)</code></li>
+				<li><code>alert(...)</code></li>
+				<li><code>confirm(...)</code></li>
+			</ul>
+			<h2>If/else</h2>
+				<pre>
+					<code>if (...) {</code>
+					<code>  ...</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>if (...) {</code>
+					<code>  ...</code>
+					<code>} else {</code>
+					<code>  ...</code>
+					<code>}</code>
+				</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Найти на странице интпут и узнать его значение</h2>
+
+		<pre>
+			<code>...</code>
+			<code>&lt;input id='<mark>textInput</mark>' type='text' value='<mark>12345</mark>'></code>
+			<code>...</code>
+		</pre>
+
+		<pre class="next">
+			<code>var inp = document.getElementById(<mark class="next">'textInput'</mark>);</code>
+			<code class="next">inp.value; // => <mark>"12345"</mark></code>
+			<code class="next">document.getElementById('textInput').value; // => <mark>"12345"</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>addEventListener</h2>
+		<pre>
+			<code>...</code>
+			<code>&lt;button id="button">кнопка</button></code>
+			<code>...</code>
+		</pre>
+		<pre>
+			<code class="next">var button = document.getElementById('button')</code>
+			<code class="next">consloe.log(button) // =>  &lt;button ... > </code>
+			<code class="next">consloe.log(button.<mark>addEventListener</mark>)</code>
+			<code class="next">  // =>  function <mark>addEventListener</mark>()</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Вешаем событие клика</h2>
+		<div style="font-size: 20px;">
+			<pre>
+				<code>...</code>
+				<code>&lt;button id='button' type='button'>кнопка</button></code>
+				<code>&lt;input id='textInput' type='text' value='12345'></code>
+				<code>...</code>
+			</pre>
+			<pre>
+				<code>var <mark>button</mark> = document.getElementById('button')</code>
+				<code>var <mark>input</mark> = document.getElementById('textInput')</code>
+				<code><mark>button</mark>.addEventListener(<mark class="next">'click'</mark>, function(){</code>
+				<code>  <mark class="next">alert(input.value)</mark></code>
+				<code>}, false);</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Живой пример - Hurt me plenty</h2>
+		<input id='textInput_live' type='text' value='12345'/>
+		<button id='button_live'>кнопка</button>
+
+		<script>
+			var button = document.getElementById('button_live')
+			var input = document.getElementById('textInput_live')
+
+			button.addEventListener('click', function(){
+				alert(input.value)
+			}, false);
+		</script>
+
+		<pre style='font-size: 16px; margin-top: 20px;'>
+			<code>&lt;input id='textInput_live' type='text' value='12345'/></code>
+			<code>&lt;button id='button_live'>кнопка</button></code>
+			<code> </code>
+			<code>&lt;script></code>
+			<code>  var button = document.getElementById('button_live')</code>
+			<code>  var input = document.getElementById('textInput_live')</code>
+			<code> </code>
+			<code>  button.addEventListener('click', function(){</code>
+			<code>    alert(input.value)</code>
+			<code>  }, false);</code>
+			<code>&lt;/script></code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2 style="font-size: 40px;">Продвинутый пример, умножение - Ultra-Violence</h2>
+		<input id='numInput1' type='number' value='12345'/>
+		<input id='numInput2' type='number' value='12345'/>
+		<button id='numButton'>кнопка</button>
+
+		<script>
+			var numInput1 = document.getElementById('numInput1')
+			var numInput2 = document.getElementById('numInput2')
+			var numButton = document.getElementById('numButton')
+
+			numButton.addEventListener('click', function(){
+				if (confirm('Вы уверены что хотите узнать значение?')) {
+					alert(numInput1.value * numInput2.value)
+				} else {
+					alert('Очень жаль =(((((')
+				}
+			}, false);
+		</script>
+	</section>
+
+	<section class="slide">
+		<pre style='font-size: 14px; margin-top: 20px;'>
+			<code>&lt;input id='numInput1' type='number' value='12345'/></code>
+			<code>&lt;input id='numInput2' type='number' value='12345'/></code>
+			<code>&lt;button id='numButton'>кнопка</button></code>
+			<code> </code>
+			<code>&lt;script></code>
+			<code>	var numInput1 = document.getElementById('numInput1')</code>
+			<code>	var numInput2 = document.getElementById('numInput2')</code>
+			<code>	var numButton = document.getElementById('numButton')</code>
+			<code> </code>
+			<code>	numButton.addEventListener('click', function(){</code>
+			<code>		if (confirm('Вы уверены что хотите узнать значение?')) {</code>
+			<code>			alert(numInput1.value * numInput2.value)</code>
+			<code>		} else {</code>
+			<code>			alert('Очень жаль =(((((')</code>
+			<code>		}</code>
+			<code>	}, false);</code>
+			<code>&lt;/script></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 style='font-size: 40px;'>Мега продвинутый пример - Nightmare!</h2>
+		<style>
+			.toggleBox {
+				width: 100px;
+				height: 100px;
+				background-color: 000;
+				-webkit-transition: .3s;
+				-o-transition: .3s;
+				transition: .3s;
+				position: relative;
+			}
+
+			.toggleBox.yellow_cl {
+				left: 50px;
+				top: 50px;
+				background-color: yellow;
+			}
+
+			.toggleBox.red_cl {
+				left: 100px;
+				top: 50px;
+				background-color: red;
+			}
+
+			.toggleBox.blue_cl {
+				left: 100px;
+				top: 100px;
+				background-color: blue;
+			}
+
+			.toggleBox.green_cl {
+				left: 50px;
+				top: 100px;
+				background-color: green;
+			}
+		</style>
+
+		<div id='toggleBox' class='toggleBox yellow_cl'></div>
+
+		<script>
+			var toggleBox = document.getElementById('toggleBox')
+
+			toggleBox.addEventListener('click', function(){
+				var classList = toggleBox.classList
+
+				if (classList.contains('yellow_cl')) {
+					classList.remove('yellow_cl')
+					classList.add('red_cl')
+				} else
+
+				if (classList.contains('red_cl')) {
+					classList.remove('red_cl')
+					classList.add('blue_cl')
+				} else
+
+				if (classList.contains('blue_cl')) {
+					classList.remove('blue_cl')
+					classList.add('green_cl')
+				} else
+
+				{
+					classList.remove('green_cl')
+					classList.add('yellow_cl')
+				}
+			}, false);
+		</script>
+	</section>
+
+	<section class="slide">
+		<h2>Примерный код</h2>
+		<div style='font-size: 20px;'>
+			<pre>
+				<code>...</code>
+				<code>&lt;div id="box" class="box">&lt;/div></code>
+				<code>...</code>
+			</pre>
+			<pre>
+				<code>var box = document.getElementById('box')</code>
+				<code>box.classList</code>
+				<code>box.classList.add('className')</code>
+				<code>box.classList.remove('className')</code>
+				<code>box.classList.toggle('className')</code>
+				<code>box.classList.contains('className')</code>
+			</pre>
+		</div>
+	</section>
+
+	<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</p>
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+	<link rel="stylesheet" href="styles/screen-update.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>JavaScript. Урок 2. Основные операторы</h1>
+		<p><a href="ilovedraw.com">Кузнецов Андрей Николаевич</a>, для школы № 31</p>
+	</header>
+	<section class="slide">
+		<h2 class="shout">Повторение</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var hello = 'Hello world!';</code>
+			<code>var message;</code>
+			<code>message = hello;</code>
+
+			<code>alert( hello ); <mark class="next">// Hello world!</mark></code>
+			<code>alert( message ); <mark class="next">// Hello world!</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var x = 1;</code>
+			<code>x = -x;</code>
+			<code>alert( x ); <mark class="next">// -1</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>alert( '1' + 2 ); <mark class="next">// 12</mark></code>
+			<code>alert( 2 + '1' ); <mark class="next">// 21</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var apples = "2";</code>
+			<code>var oranges = "3";</code>
+			<code>alert( apples + oranges ); <mark class="next">// "23"</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var apples = "2";</code>
+			<code>var oranges = "3";</code>
+			<code>alert( +apples + +oranges ); <mark class="next">// 5</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var a, b, c;</code>
+			<code>a = b = c = 2 + 2;</code>
+			<span class="next">
+				<code>alert( a ); <mark class="next">// 4</mark></code>
+				<code>alert( b ); <mark class="next">// 4</mark></code>
+				<code>alert( c ); <mark class="next">// 4</mark></code>
+			</span>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция alert()</h2>
+		<pre>
+			<code>var a = 1;</code>
+			<code>var b = 2;</code>
+			<code class="next">var c = 3 - (a = b + 1);</code>
+			<code class="next">alert( a ); <mark class="next">// 3</mark></code>
+			<code class="next">alert( c ); <mark class="next">// 0</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Взятие остатка %</h2>
+		<p>Оператор взятия остатка % интересен тем, что, несмотря на обозначение, никакого отношения к процентам не имеет.</p>
+		<pre>
+			<code>alert( 5 % 2 ); <mark class="next">// 1, остаток от деления 5 на 2</mark></code>
+			<code>alert( 8 % 3 ); <mark class="next">// 2, остаток от деления 8 на 3</mark></code>
+			<code>alert( 6 % 3 ); <mark class="next">// 0, остаток от деления 6 на 3</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Инкремент/декремент: ++, --</h2>
+		<p>Одной из наиболее частых операций в JavaScript, как и во многих других языках программирования, является увеличение или уменьшение переменной на единицу.</p>
+		<strong>Инкремент ++</strong> увеличивает на 1:
+		<pre>
+			<code>var i = 2;</code>
+			<code>i++; <span class="comment">// более короткая запись для i = i + 1.</span></code>
+			<code>alert(i); <span class="comment">// 3</span></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Инкремент/декремент: ++, --</h2>
+		<strong>Декремент --</strong> увеличивает на 1:
+		<pre>
+			<code>var i = 2;</code>
+			<code>i--; <span class="comment">// более короткая запись для i = i - 1.</span></code>
+			<code>alert(i); <span class="comment">// 1</span></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Инкремент/декремент: ++, --</h2>
+		<p>Разница между i++ и ++i</p>
+		<pre>
+			<code>var i = 1;</code>
+			<code>var a = ++i; <span class="comment">// (*)</span></code>
+
+			<code>alert(a); <span class="comment">// 2</span></code>
+		</pre>
+		<p>В строке (*) вызов <strong>++i</strong> увеличит переменную, а затем вернёт ее значение в <strong>a</strong>. Так что в <strong>a</strong> попадёт значение <strong>i</strong> после увеличения.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Инкремент/декремент: ++, --</h2>
+		<p>Разница между i++ и ++i</p>
+		<pre>
+			<code>var i = 1;</code>
+			<code>var a = i++; <span class="comment">// (*)</span></code>
+
+			<code>alert(a); <span class="comment">// 1</span></code>
+		</pre>
+		<strong>Постфиксная форма i++ отличается от префиксной ++i тем, что возвращает старое значение, бывшее до увеличения.</strong>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет alert()</h2>
+		<pre>
+			<code>var i = 1;</code>
+			<code>alert( 2 * ++i ); <mark class="next">// 4</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет alert()</h2>
+		<pre>
+			<code>var i = 1;</code>
+			<code>alert( 2 * i++ ); <mark class="next">//  2</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Операторы сравнения</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Из математики</h2>
+		<ul>
+			<li>Больше/меньше: a > b, a < b.</li>
+			<li>Больше/меньше или равно: a >= b, a <= b.</li>
+			<li>Равно a == b. Для сравнения используется два символа равенства '='. Один символ a = b означал бы присваивание.</li>
+			<li>«Не равно». В математике он пишется как ≠, в JavaScript – знак равенства с восклицательным знаком перед ним !=.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<p>Как и другие операторы, сравнение возвращает значение. Это значение имеет <strong>логический (boolean)</strong> тип.</p>
+		<h2>Существует всего два логических значения:</h2>
+		<ul>
+			<li><b>true</b> – имеет смысл «да», «верно», «истина».</li>
+			<li><b>false</b> – означает «нет», «неверно», «ложь».</li>
+		</ul>
+		<pre class="next">
+			<code>alert( 2 > 1 );  <mark class="next">// true</mark></code>
+			<code>alert( 2 == 1 ); <mark class="next">// false</mark></code>
+			<code>alert( 2 != 1 ); <mark class="next">// true</mark></code>
+		</pre>
+
+	</section>
+
+	<section class="slide">
+		<h2>Сравнение строк</h2>
+		<p>Строки сравниваются побуквенно</p>
+		<pre class="next">
+			<code>alert( 'Б' > 'А' ); <mark>// true</mark></code>
+			<code>alert( 'Вася' > 'Ваня' ); <mark class="next">// true, т.к. 'с' > 'н'</mark></code>
+			<code>alert( 'Привет' > 'Прив' ); </code>
+			<mark class="next">// true, так как 'е' больше чем "ничего".</mark>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Важно!</h2>
+		<p>Обычно мы получаем значения от посетителя в виде строк. Например, prompt возвращает строку, которую ввел посетитель.
+			Числа, полученные таким образом, в виде строк сравнивать нельзя, результат будет неверен. Например:</p>
+		<pre>
+			<code>alert( "2" > "14" ); <mark>// true</mark></code>
+			<p class="next">Как сделать правильно?</p>
+			<code class="next">alert( +"2" > +"14" ); <mark>// false</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Задание</h2>
+		<p>Найдите наибольшее значение из 2-х чисел</p>
+		<div>
+			<label>
+				A
+				<input type="text" name="" id="a">
+			</label>
+		</div>
+		<div>
+			<label>
+				B
+				<input type="text" name="" id="b">
+			</label>
+		</div>
+
+		<button id="findMax">Найти наибольшее значение</button>
+
+		<script type="text/javascript">
+			var findMaxButton = document.getElementById('findMax');
+			var aInput = document.getElementById('a');
+			var bInput = document.getElementById('b');
+
+			findMaxButton.addEventListener('click', function() {
+				var aValue = aInput.value,
+					bValue = bInput.value;
+
+				if ( aValue === "" || bValue === "" ) {
+					alert('Поля должны быть заполнены');
+				} else if ( +aValue * 0 != 0 ||
+						    +bValue * 0 != 0 ) {
+					alert('Поля должны содержать числа!');
+				} else if (+aValue > +bValue) {
+					alert(aValue + " больше чем " + bValue);
+				} else {
+					alert(bValue + " больше чем " + aValue);
+				}
+
+			});
+		</script>
+
+
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="progress"></div>
+
+	<script src="shower.min.js"></script>
+	<!-- Copyright © 2016 Yours Truly, Famous Inc. -->
+</body>
+</html>

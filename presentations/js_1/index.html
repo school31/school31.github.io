@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+
+	<!-- 1 -->
+	<section class="slide" id="cover">
+		<img src="pictures/cover.png" class='cover' alt="">
+	</section>
+
+	<!-- 2 -->
+	<section class="slide">
+		<img src="pictures/langs.png" class='cover' alt="">
+	</section>
+
+	<!-- 3 -->
+	<section class="slide">
+		<h2 class="shout shrink">Почему именно Javascript?</h2>
+	</section>
+
+	<!-- 4 -->
+	<section class="slide" id='alternatives'>
+		<h2>Альтернативы:</h2>
+		<ul style='font-size: 50px'>
+			<li>Java</li>
+			<li>Adobe Flash</li>
+		</ul>
+	</section>
+
+	<!-- 5 -->
+	<srction class="slide">
+		<h2>Причины использовать Javascipt</h2>
+		<ul>
+			<li>Единственный нативно поддерживаемый всеми браузерами язык программирования</li>
+			<li>Позволяет создавать нативные приложения для Android, iOS и десктопа</li>
+			<li>На JS можно писать серверную часть приложения</li>
+			<li>
+				JS является одним из самых распространненых языков в мире, он растет
+				качественно и количественно и вскоре вы сможете делать на JS что угодно
+			</li>
+		</ul>
+	</srction>
+
+	<!-- 6 -->
+	<section class="slide" id="featutes">
+		<h2>Особенности Javascript</h2>
+		<ol>
+			<li>Динамическая типизация</li>
+			<li>Слабая типизация</li>
+			<li>Интерпретируемость</li>
+		</ol>
+		<ul>
+			<li>Прототипно ориентированный язык</li>
+		</ul>
+	</section>
+
+	<!-- 7 -->
+	<section class="slide">
+		<h2>Типы данных в JS</h2>
+		<ul style='font-size: 40px'>
+			<li>Простые (примитивные) типы данных</li>
+			<li>Объекты</li>
+		</ul>
+	</section>
+
+	<!-- 8 -->
+	<section class="slide">
+		<h2>Простые (примитивные) типы</h2>
+		<ul>
+			<li>String - строка -> 'some string' ('string' или "string")</li>
+			<li>Number - число -> 123 (123 - число, "123" - строка)</li>
+			<li>Boolean - логическое значение -> true/false</li>
+			<li>null</li>
+			<li>undefined</li>
+		</ul>
+	</section>
+
+	<!-- 9 -->
+	<section class="slide">
+		<h2>Объекты</h2>
+		<ul>
+			<li>Object - Объекты -> {...}</li>
+			<li>Function - Функции -> function name(){...}</li>
+			<li>Array - Массивы -> [1, 2, 3, ...]</li>
+			<li>RegExp - Регулярные выражения -> /.../</li>
+		</ul>
+	</section>
+
+	<!-- 10 -->
+	<section class="slide">
+		<h2>Оператор typeof</h2>
+		<div class="double" style='font-size: 20px'>
+			<pre>
+				<code>typeof 123       // => number</code>
+				<code>typeof "123"     // => string</code>
+				<code>typeof true      // => boolean</code>
+				<code>typeof false     // => boolean</code>
+				<code><mark>typeof null      // => object</mark></code>
+				<code>typeof undefined // => undefined</code>
+			</pre>
+			<pre>
+				<code>typeof Object    // => object</code>
+				<code>typeof Function  // => object</code>
+				<code>typeof Array     // => object</code>
+				<code>typeof RegExp    // => object</code>
+			</pre>
+		</div>
+	</section>
+
+	<!-- 11 -->
+	<section class="slide">
+		<h2 style='font-size: 40px'>Объявленние переменной в JS</h2>
+		<p>
+			Для объявления переменной используется ключевое
+			слово "<mark>var</mark>" (от "variable" - "переменная")
+		</p>
+		<pre>
+			<code><mark>var</mark> k;</code>
+		</pre>
+		<h2 style='font-size: 40px'>Инициализация переменной в JS</h2>
+		<p>Для инициализации (задания значения) используется оператор "<mark>=</mark>"</p>
+		<pre>
+			<code>k <mark>=</mark> 10;</code>
+		</pre>
+	</section>
+
+	<!-- 12 -->
+	<section class="slide">
+		<h2>Динамическая типизация</h2>
+		<pre class='next'>
+			<code>var k <span class="next">= <mark>10</mark>;</span></code>
+			<code class='next'>typeof k; // => <mark>number</mark></code>
+			<code class='next'>k = <mark>'some string'</mark>;</code>
+			<code class='next'>typeof k; // => <mark>string</mark></code>
+		</pre>
+		<p>Объявление переменной в Java</p>
+		<pre>
+			<code><mark>int</mark> x = 100</code>
+			<code><mark>float</mark> y = 123.45</code>
+		</pre>
+	</section>
+
+	<!-- 13 -->
+	<section class="slide">
+		<h2 class="shout shrink">Сложение в JS</h2>
+	</section>
+
+	<!-- 14 -->
+	<section class="slide">
+		<h2>Сложение чисел</h2>
+		<pre>
+			<code>var n1 = <mark>1</mark>;</code>
+			<code>var n2 = <mark>2</mark>;</code>
+			<code><mark>n1 + n2;</mark><span class="next"> // => 1 + 2 = </span><span class="next"><mark>3</mark></span></code>
+			<code><mark>n2 + n1;</mark><span class="next"> // => 2 + 1 = </span><span class="next"><mark>3</mark></span></code>
+		</pre>
+	</section>
+
+	<!-- 15 -->
+	<section class="slide">
+		<h2>Сложение строк (конкатенация)</h2>
+		<pre>
+			<code>var <mark>s1</mark> = <mark>'some'</mark>;</code>
+			<code>var <mark>s2</mark> = <mark>'string'</mark>;</code>
+			<code><mark>s1</mark> + <mark>s2</mark>; <span class="next">// => <mark>'some'</mark> + <mark>'string'</mark> = </span><span class="next"><mark>'somestring'</mark></span></code>
+			<code><mark>s2</mark> + <mark>s1</mark>; <span class="next">// => <mark>'string'</mark> + <mark>'some'</mark> = </span><span class="next"><mark>'stringsome'</mark></span></code>
+		</pre>
+	</section>
+
+	<!-- 16 -->
+	<section class="slide">
+		<h2>Слабая типизация</h2>
+		<div style='font-size: 22px;'>
+			<pre>
+				<code>var num = <mark>123</mark>;</code>
+				<code>var str = <mark>'some string'</mark>;</code>
+				<code class="next">num + str; <span class="next">// => <mark>123</mark> + <mark>'some string'</mark> = <mark class="next">'123some string'</mark></span></code>
+				<code class="next">str + num; <span class="next">// => <mark>'some string'</mark> + <mark>123</mark> = <mark class="next">'some string123'</mark></span></code>
+				<code class="next">str * num; <span class="next">// => <mark>'some string'</mark> * <mark>123</mark> = <mark class="next">NaN</mark></span></code>
+			</pre>
+			<p class="next">NaN - Not a Number</p>
+			<pre class="next">
+				<code>var k = 'some string' * 123; // => NaN</code>
+				<code class="next">typeof k; // => <mark class="next">number</mark></code>
+			</pre>
+		</div>
+	</section>
+
+	<!-- 17 -->
+	<section class="slide">
+		<h2>Еще немного про числа в JS</h2>
+		<ul class="double">
+			<li>123</li>
+			<li>123.45</li>
+			<li>NaN</li>
+			<li>Infinity</li>
+			<li>-Infinity</li>
+			<li>Можно делить на 0</li>
+			<li>0.1 + 0.2; // => 0.30000000000000004</li>
+			<li>Number.MAX_VALUE</li>
+			<li>Number.MIN_VALUE</li>
+		</ul>
+	</section>
+
+	<!-- 18 -->
+	<section class="slide">
+		<h2>Справочники</h2>
+		<ul>
+			<li><a href="https://developer.mozilla.org/ru/docs/Web">Mozilla Developer Network</a></li>
+			<li><a href="https://learn.javascript.ru">learn.javascript.ru</a></li>
+			<li><a href="https://vk.com/doc199659919_439641099">JavaScript. Подробное руководство</a></li>
+		</ul>
+	</section>
+
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+	<link rel="stylesheet" href="styles/screen-update.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>JavaScript. Урок N. Рекурсия</h1>
+		<p><a href="ilovedraw.com">Кузнецов Андрей Николаевич</a>, для школы № 31</p>
+	</header>
+	<section class="slide">
+		<h2 class="shout">Повторение</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция console.log()</h2>
+		<pre>
+			<code>var object = {};</code>
+			<code>object.property = 'text';</code>
+			<code>console.log( object ); <mark class="next"> &#8227; Object {property: "text"}</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция console.log()</h2>
+		<pre>
+			<code>var newObject = object;</code>
+			<code>newObject.property = 'newText';</code>
+			<code>console.log( newObject ); <mark class="next"> &#8227; Object {property: "newText"}</mark></mark></code>
+			<code class="next">console.log( object ); <mark class="next"> &#8227; Object {property: "newText"}</mark></mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Что выведет функция console.log()</h2>
+		<pre>
+			<code>var array = [];</code>
+			<code>array[2] = 'Петя';</code>
+			<code>console.log( array.length ); <mark class="next">// 3</mark></code>
+			<code class="next">var array2 = { name: 'Петя', phone: '12345678' };</code>
+			<code class="next">console.log( array2.length ); <mark class="next"> undefined</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Рекурсия</h2>
+	</section>
+
+	<section class="slide">
+		<p>
+			В теле функции могут быть вызываны другие функции для выполнения подзадач.<br>
+
+			Частный случай подвызова – когда функция вызывает сама себя. Это называется <b>рекурсией.</b><br>
+
+			Рекурсия используется для ситуаций, когда выполнение одной сложной задачи можно представить как некое действие в совокупности с решением той же задачи в более простом варианте.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Степень pow(x, n) через рекурсию</h2>
+		<p>В качестве первого примера использования рекурсивных вызовов – рассмотрим задачу возведения числа x в натуральную степень n.</p>
+		<p>Её можно представить как совокупность более простого действия и более простой задачи того же типа вот так:</p>
+		<pre>
+			<code>pow(x, n) = x * pow(x, n - 1)</code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>То есть, x<sup>n</sup> = x * x<sup>n</sup>-1.</h2>
+		<p>Например, вычислим <b>pow(2, 4)</b>, последовательно переходя к более простой задаче:</p>
+		<pre>
+			<code>pow(2, 4) = 2 * pow(2, 3)</code>
+			<code>pow(2, 3) = 2 * pow(2, 2)</code>
+			<code>pow(2, 2) = 2 * pow(2, 1)</code>
+			<code>pow(2, 1) = 2</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Код на JavaScript</h2>
+
+		<pre>
+			<code>function pow(x, n) {</code>
+			<code>	if (n != 1) { <span class="comment">// !</span></code>
+			<code>		return x * pow(x, n - 1);</code>
+			<code>	} else {</code>
+			<code>		return x;</code>
+			<code>	}</code>
+			<code>}</code>
+			<code>alert( pow(2, 3) ); // 8</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Задачи</h2>
+		<p>Вычислить сумму чисел до данного</p>
+		<pre>
+			<code>sumTo(1) = 1</code>
+			<code>sumTo(2) = 2 + 1 = 3</code>
+			<code>sumTo(3) = 3 + 2 + 1 = 6</code>
+			<code>sumTo(100) = 5050</code>
+		</pre>
+		<p>Вычислить факториал</p>
+		<p>Вычислить числа Фибоначи</p>
+	</section>
+
+
+
+	<div class="progress"></div>
+
+	<script src="shower.min.js"></script>
+	<!-- Copyright © 2016 Yours Truly, Famous Inc. -->
+</body>
+</html>
