@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+	<link rel="stylesheet" href="styles/screen-update.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>JavaScript. Библиотека jQuery</h1>
+		<p><a href="ilovedraw.com">Кузнецов Андрей Николаевич</a>, для школы № 31</p>
+	</header>
+	<section class="slide">
+		<h2 class="shout"><img src="files/jquery.png" alt=""></h2>
+	</section>
+
+	<section class="slide">
+		<h2>jQuery</h2>
+		<p>
+			jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу <b>DOM</b>, обращаться к атрибутам и содержимому элементов <b>DOM</b>, манипулировать ими. Также библиотека jQuery предоставляет удобный <b>API</b> для работы с <b>AJAX</b>.
+		</p>
+	</section>
+
+	<section class="slide">
+		<p>
+			<b>DOM</b> - от англ. Document Object Model — «объектная модель документа» <br><br>
+			<b>API</b> - от англ. Application Programming Interface, API [эй-пи-ай], интерфейс программирования приложений <br><br>
+			<b>AJAX</b> - от англ. Asynchronous Javascript And Xml
+		</p>
+	</section>
+
+	<section class="slide">
+		<p>
+			jQuery оказал просто невероятное влияние на продвижение Web. Он дал возможность разработчикам делать такие вещи, которые ранее считались немыслимыми. Заставил производителей браузеров реализовать многие фичи нативно (без jQuery у нас наверное никогда бы не появился document.querySelectorAll).
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Немного истории</h2>
+		<p>
+			Публичный дебют jQuery состоялся в январе 2006 на конференции BarCamp в Нью-Йорке. BarCamp — это технологическая конференция, на которой обсуждались вопросы Интернета и open source технологий.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Плюсы jQuery</h2>
+		<ul>
+			<li class="next">Упрощает процесс разработки. Простой <b>синтаксис</b></li>
+			<li class="next">Ускоряет процесс разработки</li>
+			<li class="next">Огромное количество библиотек написанных на jQuery</li>
+			<li class="next">API jQuery 2006 года до сих пор поддерживается</li>
+			<li class="next">Открытый исходный код</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Минусы jQuery</h2>
+		<ul>
+			<li class="next">Размер</li>
+			<li class="next">Теряем в производительности</li>
+			<li class="next">Неграммотное использование может приводить к утечкам памяти</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Как добавить jQuery на веб-страницу</h2>
+		<pre>
+			<code>&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;</code>
+			<code>&lt;/script&gt;</code>
+			Либо
+			<code>&lt;script src=&quot;scripts/jquery-2.0.0.min.js&quot;&gt;&lt;/script&gt;</code>
+
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Обращение к DOM-элементам $()</h2>
+	</section>
+
+	<section class="slide">
+		<span class="next"><code>$("div")</code>	вернет все div-элементы на странице. <br></span>
+
+		<span class="next"><code>$(".someBlock")</code>	вернет все элементы с классом someBlock.<br></span>
+		<span class="next"><code>$("#content")</code>	вернет элемент с идентификатором content.<br></span>
+		<span class="next"><code>$("#content2 div.someBlock")</code>	вернет div-элементы с классом someBlock, которые находятся внутри элемента с <span class="next">идентификатором content2.<br></span>
+		<span class="next"><code>$("div:odd")</code>	вернет div-элементы, находящиеся на странице под нечетными номерами.<br></span>
+		<span class="next"><code>$("[value = 5]")</code>	вернет все элементы с атрибутом value, равным 5.<br></span>
+	</section>
+
+
+
+	<section class="slide">
+
+		<code>$("#bigIt").css("height")</code>	<span class="next">возвратит значение высоты у элемента с идентификатором bigIt.</span><br>
+		<code>$("div").css("width", "20px")</code>	<span class="next">установит новое значение ширины всем div-элемента на странице.</span><br>
+		<code>$("#bigIt").attr("class")</code>	<span class="next">возвратит значение класса элемента с id = bigIt.</span><br>
+		<code>$("#bigIt").attr("class", "box")</code>	<span class="next">установит новое значение атрибута class у элемента с id = bigIt.</span><br>
+		<code>$("#bigIt").html(&lt;p&gt;Новье!&lt;/p&gt;)</code>	<span class="next">изменит все html-содержимое элемента с id = bigIt, на заданное в методе html.</span><br>
+	</section>
+
+
+	<section class="slide">
+		<code>$("#bigIt").text()</code>	<span class="next">возвратит текст, находящийся внутри элемента с id = bigIt.</span><br>
+		<code>$(".someBox").empty()</code>	<span class="next">очистить от содержимого элементы с классом someBox.</span><br>
+	</section>
+
+	<section class="slide">
+		<h2>Работа с набором элементов</h2>
+
+			<span class="next"><code>$("div").parent()</code>	вернет родительские элементы всех div-ов.</span>
+			<span class="next"><code>$("div").children()</code>	вернет дочерние элементы всех div-ов.</span>
+			<span class="next"><code>$("#someId").next()</code>	вернет элемент, лежащий сразу после someId.</span>
+			<span class="next"><code>$("div").prev()</code>	вернет элементы, лежащие перед div'ами.</span>
+			<span class="next"><code>$("div").eq(i)</code>	вернет div-элемент, с индексом i в наборе.</span>
+			<span class="next"><code>$("div").get(i)</code>	вернет DOM-объект div'а, с индексом i.</span>
+			<span class="next"><code>$("div").get()</code>	вернет массив DOM-объеков всех div-ов.</span>
+			<span class="next"><code>$("div").size()</code>	вернет размер набора (количествово div-ов).</span>
+	</section>
+
+	<section class="slide">
+		<h2>Задача</h2>
+		<p>Оживить калькулятор</p>
+		<h2>http://codepen.io/chak/pen/xqqMmR</h2>
+	</section>
+
+
+
+	<div class="progress"></div>
+
+	<script src="shower.min.js"></script>
+	<!-- Copyright © 2016 Yours Truly, Famous Inc. -->
+</body>
+</html>
