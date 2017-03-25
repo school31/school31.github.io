@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ribbon theme for Shower</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+	<link rel="stylesheet" href="styles/screen-update.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Трансформации и анимация в CSS. Урок 1.</h1>
+		<p><a href="ilovedraw.com">Кузнецов Андрей Николаевич</a>, для школы № 31</p>
+	</header>
+	<section class="slide">
+		<h2 class="shout">Transitions</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Где обычно используется</h2>
+		<ul>
+			<li>Анимированное меню</li>
+			<li>Hover - эффекты (при наведении на объект)</li>
+			<li>Плавные переходы</li>
+		</ul>
+		Раньше нам приходилось для этого использовать JavaScript
+	</section>
+	<section class="slide">
+		<h2>Transitions / Переходы</h2>
+		<h3>Transitions - простой способ анимации отдельных свойств элемента</h3><br>
+		<table class="striped text-center">
+			<tr>
+				<th scope="col"><img src="files/chrome.png" width="35" alt="chrome"></th>
+				<th><img src="files/firefox.png" width="35" alt="firefox"></th>
+				<th><img src="files/opera.png" width="35" alt="firefox"></th>
+				<th><img src="files/safari.png" width="35" alt="safari"></th>
+				<th><img src="files/ie.png" width="35" alt="ie"></th>
+			</tr>
+			<tr>
+				<td>26.0<br>4.0 -webkit-</td>
+				<td>16.0<br>4.0 -moz-</td>
+				<td>12.1<br>10.5 -o-</td>
+				<td>6.1<br>3.1 -webkit-</td>
+				<td>10.0</td>
+			</tr>
+		</table>
+		<p>По данным <a href="http://caniuse.com/#search=transitions" target="_blank">caniuse.com</a> поддерживают 92.85% браузеров в мире</p>
+	</section>
+	<section class="slide">
+		<h2>Пример</h2>
+		<div id="example-1">Наведи на меня курсор</div>
+		<div class="col-2" style="width: 60%">
+			<p class="double">
+				<pre><code>#example-1 {</code>
+				<code>  width: 300px;</code>
+				<code>  border: 2px solid #333;</code>
+				<code>  cursor: pointer;</code>
+				<code>  <mark>transition: width 1s;</mark></code>
+				<code>}</code>
+				</pre>
+			</p>
+		</div>
+		<div class="col-2" style="width: 40%">
+			<p class="double">
+				<pre><code>#example-1:hover {</code>
+				<code>  width: 600px;</code>
+				<code>}</code>
+				</pre>
+			</p>
+		</div>
+	</section>
+	<section class="slide">
+		<h2>Синтаксис</h2>
+		<pre>
+			<code>transition:</code>
+			<code class="next">  [transition-property]</code>
+			<code class="next">  [transition-duration]</code>
+			<code class="next">  [transition-timing-function]</code>
+			<code class="next">  [transition-delay];</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Название свойства transition-property</h2>
+		<p>Содержит название CSS-свойств, к которым будет применен эффект перехода. Можно указывать как <mark>transition-property: <Имя свойства></mark></p>
+		<table class="striped">
+			<tr>
+				<td scope="row">Значение</td>
+				<td scope="row"></td>
+			</tr>
+			<tr>
+				<td><b>none</b>
+				<td>Отсутствие свойства для перехода.</td>
+			</tr>
+			<tr>
+				<td><b>all</b></td>
+				<td>Значение по умолчанию. Применяет эффект перехода ко всем свойствам элемента.</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Продолжительность перехода<br> transition-duration</h2>
+		<p>Задает промежуток времени, в течение которого должен осуществляться переход.  Можно указывать как <mark>transition-duration: <Время></mark></p>
+		<table class="striped">
+			<tr>
+				<td scope="row">Значение</td>
+				<td scope="row"></td>
+			</tr>
+			<tr>
+				<td><b>Время</b>
+				<td>Время перехода указывается в секундах или миллисекундах, например, 2s или 5ms.</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Пример</h2>
+		<div class="wrap transition-duration">
+			<h1>Наведите на блок</h1>
+			<kbd>transition-duration</kbd>
+			<div class="container">
+				<span>0.5s</span>
+				<div class="box1 box"></div>
+			</div>
+			<div class="container">
+				<span>1s</span>
+				<div class="box2 box"></div>
+			</div>
+			<div class="container">
+				<span>2s</span>
+				<div class="box3 box"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Функция перехода transition-timing-function</h2>
+		<p>Свойство задаёт временную функцию, которая определяет скорость перехода объекта от одного значения к другому. Если вы определяете более одного перехода для элемента, например, цвет фона элемента и его положение, вы можете использовать разные функции для каждого свойства.</p>
+		Может иметь значения:
+		<code>ease</code>,
+		<code>linear</code>,
+		<code>ease-in</code>,
+		<code>ease-out</code>,
+		<code>ease-in-out</code>,
+		<code>cubic-bezier(x1, y1, x2, y2)</code>
+	</section>
+
+	<section class="slide">
+		<p>На сайте <a href="http://roblaplaca.com/examples/bezierBuilder/" target="_blank">roblaplaca.com</a> вы сможете построить любую траекторию перехода.</p>
+		<img src="files/bezier.png" width="400px">
+	</section>
+
+	<section class="slide">
+		<h2>Задержка перехода transition-delay</h2>
+		<p>Необязательное свойство, позволяет сделать так, чтобы изменение свойства происходило не моментально, а с некоторой задержкой. Можно указывать как <mark>transition-delay: <Время></mark></p>
+		<table class="striped">
+			<tr>
+				<td scope="row">Значение</td>
+				<td scope="row"></td>
+			</tr>
+			<tr>
+				<td><b>Время</b>
+				<td>Время задержки перехода указывается в секундах или миллисекундах.</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Пример</h2>
+		<div class="wrap transition-delay">
+			<h1>Наведите на блок</h1>
+			<kbd>transition-delay</kbd>
+			<div class="container">
+				<span>0s</span>
+				<div class="box1 box"></div>
+			</div>
+			<div class="container">
+				<span>0.5s</span>
+				<div class="box2 box"></div>
+			</div>
+			<div class="container">
+				<span>1s</span>
+				<div class="box3 box"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Краткая запись</h2>
+		<pre>
+			<code>div {</code>
+			<code>  transition: all 1s ease 0s;</code>
+			<code>}</code>
+		</pre>
+		<a href="http://codepen.io/nazarelen/full/gbLXYK/" target="_blank">Примеры переходов для различных свойств</a>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout grow">Transform</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Transform / Трансформации</h2>
+		<p>
+			CSS3 трансформации изменяют размер, форму и положение элемента на веб-странице с помощью свойства transform. Трансформации преобразовывают элемент, не затрагивая остальные элементы веб-страницы, т.е. другие элементы не сдвигаются относительно него. <br> По умолчанию трансформация происходит относительно центра элемента. <b>Трансформации не действуют на строчные элементы display: inline.</b>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Поддержка</h2>
+		<table class="striped text-center">
+			<tr>
+				<th scope="col"><img src="files/chrome.png" width="35" alt="chrome"></th>
+				<th><img src="files/firefox.png" width="35" alt="firefox"></th>
+				<th><img src="files/opera.png" width="35" alt="firefox"></th>
+				<th><img src="files/safari.png" width="35" alt="safari"></th>
+				<th><img src="files/ie.png" width="35" alt="ie"></th>
+			</tr>
+			<tr>
+				<td>36.0<br>4.0 -webkit-</td>
+				<td>16.0<br>3.5 -moz-</td>
+				<td>23.0<br>10.5 -o-</td>
+				<td>9<br>3.1 -webkit-</td>
+				<td>10.0<br>9.0 -ms-</td>
+			</tr>
+		</table>
+		<p>По данным <a href="http://caniuse.com/#search=transitions" target="_blank">caniuse.com</a> поддерживают 93.25% браузеров в мире</p>
+	</section>
+
+
+	<section class="slide">
+		<h2>2D - трансформации transform</h2>
+		<p>
+			Свойство задаёт вид преобразования элемента. Свойство описывается с помощью <b>функций трансформации</b>, которые смещают элемент относительно его текущего положения на странице или изменяют его первоначальные размеры и форму.
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Допустимые значения</h2>
+		<code>matrix()</code> — любое число<br>
+		<code>translate(), translateX(), translateY()</code> — единицы длины (положительные и отрицательные), %<br>
+		<code>scale(), scaleX(), scaleY()</code> — любое число<br>
+		<code>rotate()</code> — угол (deg, grad, rad или turn)<br>
+		<code>skew(), skewX(), skewY()</code> — угол (deg, grad, rad)<br>
+	</section>
+
+	<section class="slide">
+		<h2>translate(x,y), translateX(x), translateY(y)</h2>
+		<p>Сдвигает элемент на новое место, перемещая относительно обычного положения вправо и вниз, используя координаты x и y, не затрагивая при этом соседние элементы. Если нужно сдвинуть элемент влево или вверх, то нужно использовать отрицательные значения.</p>
+		<pre>
+		<code>.box:hover {</code>
+		<code>  transform: translate(-20px, 20px);</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>scale(x,y), scaleX(n), scaleY(n)</h2>
+		<p>Масштабирует элементы, делая их больше или меньше. Значения от 0 до 1 уменьшают элемент. Первое значение масштабирует элемент по ширине, второе — по высоте. Отрицательные значения отображают элемент зеркально.</p>
+		<pre>
+		<code>.box:hover {</code>
+		<code>  transform: scale(2, 0.5);</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>skew(угол,угол), skewX(угол), skewY(угол)</h2>
+		<p>Используется для деформирования (искажения) сторон элемента относительно координатных осей. Если указано одно значение, второе будет определено браузером автоматически.</p>
+		<pre>
+		<code>.box:hover {</code>
+		<code>  transform: skewX(20deg);</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>rotate(угол)</h2>
+		<p>Поворачивает элементы на заданное количество градусов, отрицательные значения от <code>-1deg</code> до <code>-360deg</code> поворачивают элемент против часовой стрелки, положительные — по часовой стрелке. Значение <code>rotate(720deg)</code> поворачивает элемент на два полных оборота.</p>
+		<pre>
+		<code>.box:hover {</code>
+		<code>  transform: rotate(720deg);</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Примеры трансформации</h2>
+		<img src="files/animation.gif" width="400" alt=""><br>
+		<a href="http://codepen.io/nazarelen/full/EaNbLX/" target="_blank">Codepen.io</a>
+
+	</section>
+
+
+	<section class="slide">
+		<h2>Множественные трансформации</h2>
+		<p>Можно объединить несколько трансформаций одного элемента, перечислив их через пробел в порядке проявления.</p>
+		<pre>
+		<code>div:hover {</code>
+		<code>  transform: scale(1.5) rotate(-10deg);</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Точка трансформации transform-origin</h2>
+		<p>Позволяет сместить центр трансформации, относительно которого происходит изменение положения/размера/формы элемента. Значение по умолчанию — center, или 50% 50%. Задаётся только для трансформированных элементов.
+		<a href="http://codepen.io/nazarelen/full/aNQNva/" target="_blank">Пример</a>.</p>
+		<pre>
+		<code>div:hover {</code>
+		<code>  transform-origin: 20% top;</code>
+		<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Задания</h2>
+		<img src="files/search.gif" alt="" width="200">
+		<img src="files/search2.gif" alt="" width="200">
+		<img src="files/css.gif" alt="" width="200">
+	</section>
+
+
+<!-- 	<section class="slide">
+		<h2>Ссылки</h2>
+		<ul>
+			<li><a href="https://html5book.ru/css3-transition/">https://html5book.ru/css3-transition/</a></li>
+			<li><a href="http://www.w3schools.com/css/css3_transitions.asp">http://www.w3schools.com/css/css3_transitions.asp</a></li>
+		</ul>
+	</section> -->
+
+
+	<div class="progress"></div>
+
+	<script src="shower.min.js"></script>
+	<!-- Copyright © 2016 Yours Truly, Famous Inc. -->
+</body>
+</html>
